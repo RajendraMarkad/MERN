@@ -2,6 +2,7 @@
 All preparation docs
 https://jobs.lever.co/upstox/98b5b015-9e23-415c-9fb3-c43c30a49ed7
 
+Resume: https://resumebldr.vercel.app/
 
 Hi Coder, 👩🏻‍💻 Thanks for reaching out. Below are your steps to optimise Naukri profile.
 
