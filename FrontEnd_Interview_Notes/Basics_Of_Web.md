@@ -43,7 +43,7 @@
 
 #### g. JWT
 - **JWT (JSON Web Token):** A secure way to transmit information between parties as a JSON object.
-  - **Example:** Token used to authenticate a user’s login session.
+  - **Example:** Token used to authenticate a user’s login session. https://www.codejava.net/images/articles/frameworks/springboot/jwt-auth/JWT_request_response.png
 
 #### h. XHR
 - **XHR (XMLHttpRequest):** A way to send HTTP requests from JavaScript to load data without refreshing the page.
