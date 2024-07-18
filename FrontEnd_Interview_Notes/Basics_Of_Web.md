@@ -11,7 +11,8 @@
 6. **Rendering:** The browser displays the final webpage to the user.
    - **Example:** Visiting a website like `example.com` starts this cycle.
 
-#### b. HTTP/HTTPS/HTTP2
+#### b. HTTP/HTTPS/HTTP2 
+- The Hypertext Transfer Protocol (HTTP) is the foundation of the World Wide Web, and is used to load webpages using hypertext links. HTTP is an application layer protocol designed to transfer information between networked devices and runs on top of other layers of the network protocol stack
 - **HTTP:** Transfers data between a web browser and a server. 
   - **Example:** A request to `http://example.com`.
 - **HTTPS:** Same as HTTP, but secure, encrypting data for safe transfer.
