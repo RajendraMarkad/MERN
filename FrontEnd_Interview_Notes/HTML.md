@@ -1,4 +1,4 @@
-Certainly! Let's go through each topic with scenario-based examples to help you prepare for your front-end interview.
+# HTML with scenario-based examples
 
 ### a. Semantic HTML5 Elements
 
