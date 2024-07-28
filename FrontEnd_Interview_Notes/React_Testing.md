@@ -125,4 +125,126 @@ test('submits form successfully', () => {
 });
 ```
 
-This cheat sheet should help you quickly recall the key aspects of testing in React and best practices during your interview preparation.
+### React Testing Library Interview Questions
+
+1. **Basic Rendering Test**
+   - **Question**: How would you test if a React component renders correctly with React Testing Library?
+   - **Answer**:
+     ```javascript
+     import { render, screen } from '@testing-library/react';
+     import MyComponent from './MyComponent';
+
+     test('renders MyComponent with correct text', () => {
+       render(<MyComponent />);
+       const element = screen.getByText('Hello World');
+       expect(element).toBeInTheDocument();
+     });
+     ```
+
+2. **Event Handling**
+   - **Question**: How do you test a button click event that changes the component's state?
+   - **Answer**:
+     ```javascript
+     import { render, screen, fireEvent } from '@testing-library/react';
+     import Counter from './Counter';
+
+     test('increments counter on button click', () => {
+       render(<Counter />);
+       const button = screen.getByText('Increment');
+       fireEvent.click(button);
+       const counter = screen.getByText('Count: 1');
+       expect(counter).toBeInTheDocument();
+     });
+     ```
+
+3. **Form Submission**
+   - **Question**: How would you test form submission and validate if the form data is processed correctly?
+   - **Answer**:
+     ```javascript
+     import { render, screen, fireEvent } from '@testing-library/react';
+     import MyForm from './MyForm';
+
+     test('submits form with correct data', () => {
+       render(<MyForm />);
+       fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'John Doe' } });
+       fireEvent.click(screen.getByText(/submit/i));
+       expect(screen.getByText(/submission successful/i)).toBeInTheDocument();
+     });
+     ```
+
+4. **Mocking API Calls**
+   - **Question**: How can you mock an API call in a React component test?
+   - **Answer**:
+     ```javascript
+     import { render, screen, waitFor } from '@testing-library/react';
+     import axios from 'axios';
+     import MyComponent from './MyComponent';
+
+     jest.mock('axios');
+
+     test('fetches and displays data from API', async () => {
+       axios.get.mockResolvedValue({ data: { message: 'Hello World' } });
+       render(<MyComponent />);
+       const element = await waitFor(() => screen.getByText('Hello World'));
+       expect(element).toBeInTheDocument();
+     });
+     ```
+
+5. **Testing Component Props**
+   - **Question**: How do you test a component that receives props and renders content based on those props?
+   - **Answer**:
+     ```javascript
+     import { render, screen } from '@testing-library/react';
+     import Greeting from './Greeting';
+
+     test('renders greeting message based on props', () => {
+       render(<Greeting name="John" />);
+       const element = screen.getByText('Hello, John!');
+       expect(element).toBeInTheDocument();
+     });
+     ```
+
+6. **Snapshot Testing**
+   - **Question**: How would you implement a snapshot test for a React component?
+   - **Answer**:
+     ```javascript
+     import { render } from '@testing-library/react';
+     import MyComponent from './MyComponent';
+
+     test('matches snapshot', () => {
+       const { asFragment } = render(<MyComponent />);
+       expect(asFragment()).toMatchSnapshot();
+     });
+     ```
+
+7. **Conditional Rendering**
+   - **Question**: How do you test a component that conditionally renders content based on its state?
+   - **Answer**:
+     ```javascript
+     import { render, screen, fireEvent } from '@testing-library/react';
+     import ToggleComponent from './ToggleComponent';
+
+     test('toggles content on button click', () => {
+       render(<ToggleComponent />);
+       const button = screen.getByText('Show Details');
+       fireEvent.click(button);
+       const details = screen.getByText('Here are the details...');
+       expect(details).toBeInTheDocument();
+     });
+     ```
+
+8. **Testing Async Functions**
+   - **Question**: How do you test a component that includes async operations, such as fetching data from an API?
+   - **Answer**:
+     ```javascript
+     import { render, screen, waitFor } from '@testing-library/react';
+     import MyComponent from './MyComponent';
+
+     test('displays data after async operation', async () => {
+       render(<MyComponent />);
+       const dataElement = await waitFor(() => screen.getByText('Loaded Data'));
+       expect(dataElement).toBeInTheDocument();
+     });
+     ```
+
+These questions and answers will help you demonstrate practical knowledge of React Testing Library in an interview, showcasing your ability to write and understand tests for various scenarios in React projects.
