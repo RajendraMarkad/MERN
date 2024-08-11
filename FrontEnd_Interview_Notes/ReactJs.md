@@ -525,3 +525,69 @@ Lazy loading is a design pattern used in web development to defer the loading of
 - **Native Lazy Loading**: `loading="lazy"` attribute for images to defer loading until they are needed.
 
 By implementing lazy loading, you can enhance your application's performance and provide a smoother user experience.
+
+The most commonly used methods for fetching data from a server in React are:
+
+### **1. Fetch API**
+- **Use Case:** Simple, built-in way to make HTTP requests.
+- **Why It's Common:** Native to JavaScript, no additional libraries needed.
+- **Example:**
+  ```javascript
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error:', error));
+  }, []);
+  ```
+
+### **2. Axios**
+- **Use Case:** More powerful and easier to use than Fetch API, with additional features like interceptors, automatic JSON transformation, and handling request timeouts.
+- **Why It's Common:** Widely used due to its simplicity and features beyond what Fetch API offers.
+- **Example:**
+  ```javascript
+  useEffect(() => {
+    axios.get('https://api.example.com/data')
+      .then(response => setData(response.data))
+      .catch(error => console.error('Error:', error));
+  }, []);
+  ```
+
+### **3. React Query**
+- **Use Case:** Complex data-fetching needs, including caching, pagination, and synchronization.
+- **Why It's Common:** Helps manage server state and simplifies handling loading states, caching, and background data synchronization.
+- **Example:**
+  ```javascript
+  const { data, error, isLoading } = useQuery('fetchData', () =>
+    fetch('https://api.example.com/data').then(res => res.json())
+  );
+  ```
+
+### **4. useEffect with Async/Await**
+- **Use Case:** Cleaner syntax for handling asynchronous operations, especially when chaining multiple async calls.
+- **Why It's Common:** Keeps asynchronous code more readable and maintainable.
+- **Example:**
+  ```javascript
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://api.example.com/data');
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+    fetchData();
+  }, []);
+  ```
+
+### **5. GraphQL with Apollo Client**
+- **Use Case:** Fetching data from GraphQL APIs with strong client-side caching and real-time capabilities.
+- **Why It's Common:** Increasingly popular with modern applications, especially when using GraphQL as the API layer.
+- **Example:**
+  ```javascript
+  const { loading, error, data } = useQuery(GET_DATA_QUERY);
+  ```
+
+These methods are widely adopted in React projects due to their flexibility, ease of use, and support for modern web development practices.
