@@ -495,3 +495,302 @@ Here’s a structured Q&A guide to help you easily remember and explain key CSS 
 ---
 
 Use these Q&A examples to effectively prepare for CSS interviews and recall important concepts!
+
+
+Here’s a guide to the specific CSS questions asked by different companies, complete with explanations and examples:
+
+---
+
+### **Amazon**
+
+**1. How would you create a sticky footer that always stays at the bottom of the page using CSS?**
+- **Answer:**
+  Use `position: sticky` and `bottom: 0`:
+  ```css
+  .footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+  }
+  ```
+
+**2. Explain how to implement a simple CSS animation that makes a button change color when hovered over.**
+- **Answer:**
+  Use `transition` and `hover` pseudo-class:
+  ```css
+  .button {
+    background-color: blue;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background-color: green;
+  }
+  ```
+
+**3. What are CSS Sprites, and how can they be used to improve web performance?**
+- **Answer:**
+  CSS Sprites combine multiple images into a single image file. Use `background-position` to display parts of the image:
+  ```css
+  .sprite-icon {
+    background: url('sprites.png') no-repeat;
+    width: 50px;
+    height: 50px;
+  }
+  .icon-home {
+    background-position: 0 0;
+  }
+  ```
+
+**4. How would you center a div vertically and horizontally using Flexbox?**
+- **Answer:**
+  Use `display: flex`, `justify-content`, and `align-items`:
+  ```css
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .centered-div {
+    width: 50%;
+    height: 50%;
+  }
+  ```
+
+**5. Explain the difference between `visibility: hidden` and `display: none`.**
+- **Answer:**
+  - **`visibility: hidden`:** Hides the element but maintains its space in the layout.
+  - **`display: none`:** Removes the element from the layout, and it doesn’t occupy any space.
+
+**6. How can you create a multi-column layout using only CSS?**
+- **Answer:**
+  Use the `columns` property:
+  ```css
+  .multi-column {
+    column-count: 3;
+    column-gap: 20px;
+  }
+  ```
+
+**7. What are pseudo-classes and pseudo-elements? Give examples of each.**
+- **Answer:**
+  - **Pseudo-classes** style elements in specific states (e.g., `:hover`):
+    ```css
+    a:hover { color: red; }
+    ```
+  - **Pseudo-elements** style specific parts of elements (e.g., `::before`):
+    ```css
+    p::before { content: "Note: "; color: blue; }
+    ```
+
+---
+
+### **Google**
+
+**1. Describe the difference between Flexbox and CSS Grid. Can you create a layout using both?**
+- **Answer:**
+  - **Flexbox:** Best for one-dimensional layouts.
+  - **CSS Grid:** Best for two-dimensional layouts.
+  - **Example Layout Combining Both:**
+    ```css
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    }
+    .sidebar {
+      display: flex;
+    }
+    ```
+
+**2. How would you optimize CSS to improve page load speed on a large website?**
+- **Answer:**
+  - Minify and combine CSS files.
+  - Use critical CSS for above-the-fold content.
+  - Leverage caching and use a CDN.
+
+**3. How do you handle browser-specific CSS? What techniques or tools can you use?**
+- **Answer:**
+  - Use CSS prefixes (`-webkit-`, `-moz-`).
+  - Use tools like Autoprefixer to automatically add vendor prefixes.
+
+**4. Describe how CSS Grid works. How would you create a 12-column layout using CSS Grid?**
+- **Answer:**
+  Define a grid with 12 columns:
+  ```css
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  ```
+
+**5. Explain the concept of reflows and repaints in the browser rendering process. How can you minimize them?**
+- **Answer:**
+  - **Reflow:** Layout changes that affect the positioning of elements.
+  - **Repaint:** Changes that affect visibility but not layout (e.g., color changes).
+  - **Minimize:** Reduce DOM manipulations, batch updates, use CSS transitions instead of JavaScript animations.
+
+**6. How do you create a responsive image gallery using CSS Grid or Flexbox?**
+- **Answer:**
+  - **CSS Grid Example:**
+    ```css
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    ```
+
+**7. What are the advantages and disadvantages of using CSS-in-JS libraries like styled-components or Emotion?**
+- **Answer:**
+  - **Advantages:** Scoped styles, dynamic styling based on props, better integration with JS logic.
+  - **Disadvantages:** Can increase bundle size, may lead to performance issues if not managed properly.
+
+---
+
+### **Microsoft**
+
+**1. What is the CSS box model and how does it relate to the layout of elements on a page?**
+- **Answer:**
+  The CSS box model consists of content, padding, border, and margin. It determines how the width and height of elements are calculated and how they interact with other elements.
+
+**2. How can CSS be used to create a responsive navigation bar? Provide a code example.**
+- **Answer:**
+  Use media queries to adapt the navigation layout:
+  ```css
+  .navbar {
+    display: flex;
+    flex-direction: row;
+  }
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+    }
+  }
+  ```
+
+**3. How do you implement CSS transitions for dynamic hover effects on a button? Provide an example.**
+- **Answer:**
+  Use `transition` for smooth effects:
+  ```css
+  .button {
+    background-color: blue;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  .button:hover {
+    background-color: green;
+  }
+  ```
+
+**4. What is the purpose of the `z-index` property and how is stacking context determined in CSS?**
+- **Answer:**
+  - **`z-index`:** Controls the stacking order of positioned elements.
+  - **Stacking Context:** Created by elements with `position` values other than `static`, `opacity < 1`, or `transform` values.
+
+**5. How would you create a CSS-only dropdown menu? Provide a code example.**
+- **Answer:**
+  Use `:hover` to show the dropdown:
+  ```css
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  ```
+
+**6. What are the differences between inline, inline-block, and block elements in CSS?**
+- **Answer:**
+  - **Inline:** Elements do not start on a new line and only take up as much width as needed (`<span>`).
+  - **Inline-block:** Similar to inline but allows setting width and height (`<img>`).
+  - **Block:** Elements start on a new line and take up the full width available (`<div>`).
+
+**7. Explain how CSS specificity works and how it can affect the application of styles.**
+- **Answer:** Specificity determines which CSS rule is applied when multiple rules match an element. More specific selectors override less specific ones.
+
+---
+
+### **Atlassian**
+
+**1. How would you implement a dark mode feature using CSS variables?**
+- **Answer:**
+  Use CSS variables and a class to toggle themes:
+  ```css
+  :root {
+    --bg-color: white;
+    --text-color: black;
+  }
+  .dark-mode {
+    --bg-color: black;
+    --text-color: white;
+  }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  ```
+
+**2. Explain the use of the `clamp()` function in CSS and provide an example of its usage.**
+- **Answer:**
+  `clamp()` sets a value that adapts between a minimum and maximum value:
+  ```css
+  font-size: clamp(16px, 2vw, 24px);
+  ```
+
+**3. How do you use the CSS `calc()` function? Provide an example of where it might be useful.**
+- **Answer:**
+  `calc()` performs calculations to determine CSS property values:
+  ```css
+  width: calc(100% - 20px);
+  ```
+
+**4. Describe the process and benefits of using CSS Custom Properties (variables).**
+- **Answer:**
+  CSS variables enable dynamic styling and easier management of reusable values:
+  ```css
+  :root {
+    --main-color: blue;
+  }
+  .box {
+    background-color: var(--main-color);
+  }
+  ```
+
+**5. How would you implement a fixed header that remains at the top of the page while scrolling, using only CSS?**
+- **Answer:**
+  Use `position: fixed`:
+  ```css
+  .header {
+    position: fixed;
+    top: 0;
+
+
+    width: 100%;
+  }
+  ```
+
+**6. What are the different ways to apply styles in a React application? Compare CSS, SCSS, and CSS-in-JS.**
+- **Answer:**
+  - **CSS:** Global styling applied via external stylesheets.
+  - **SCSS:** Extended CSS with variables, nesting, and more, compiled to CSS.
+  - **CSS-in-JS:** Styling within JavaScript files, scoped to components (e.g., styled-components).
+
+**7. Explain how to create a fluid grid layout that adapts to different screen sizes using CSS Grid.**
+- **Answer:**
+  Use responsive grid settings with `auto-fit` or `auto-fill`:
+  ```css
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  ```
+
+---
+
+These answers and examples should help you understand and recall the CSS concepts and techniques required for interviews at major tech companies!
