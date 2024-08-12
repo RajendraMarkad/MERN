@@ -76,13 +76,13 @@ Refactoring is the process of restructuring existing code without changing its b
 XSS attacks occur when malicious scripts are injected into web pages. To prevent XSS:
 
 - **Sanitize User Input**: Ensure user input is properly escaped and validated.
-  ```javascript
-  // Example: Escaping input before displaying
-  const userInput = "<script>alert('XSS')</script>";
-  const safeInput = userInput.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  document.innerHTML = safeInput;
-  ```
-      eg. SQL Injection Example: '; DROP TABLE users; --
+```
+ const userInput = "<script>alert('XSS')</script>";
+const safeInput = userInput.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+document.body.innerHTML = safeInput;  // or target a specific element
+```
+
+      eg. SQL Injection: '; DROP TABLE users; --
 
 - **Use Content Security Policy (CSP)**: Define which sources of content are allowed to be loaded.
 
