@@ -118,44 +118,29 @@ CORS is a security feature that restricts web pages from making requests to a di
 
 ### 3. **Accessibility**
 
-Accessibility ensures that web content is usable by people with disabilities. This includes those with visual, auditory, cognitive, and motor impairments.
+1. **Semantic HTML**:
+   - Use semantic elements like `<header>`, `<nav>`, `<main>`, `<footer>`, `<button>`, and `<input>` for better screen reader support.
 
-#### **ARIA Roles**
+2. **ARIA Attributes**:
+   - Use ARIA roles and attributes (`aria-label`, `aria-live`, `aria-hidden`, etc.) to enhance accessibility where semantic HTML alone isn't enough.
 
-ARIA (Accessible Rich Internet Applications) roles help define ways to make web content and web applications more accessible.
+3. **Keyboard Navigation**:
+   - Ensure all interactive elements are accessible via keyboard (`Tab`, `Enter`, `Space`, `Arrow keys`).
 
-- **Example**: Defining a button role:
-  ```html
-  <div role="button" tabindex="0" onclick="handleClick()">Click Me</div>
-  ```
+4. **Focus Management**:
+   - Manage focus appropriately, especially after dynamic updates (e.g., using `focus()` or `tabindex`).
 
-#### **Semantic HTML**
+5. **Alt Text**:
+   - Provide descriptive `alt` text for images and icons to convey their purpose to screen readers.
 
-Semantic HTML uses elements according to their meaning, which improves accessibility and SEO.
+6. **Accessible Forms**:
+   - Use labels (`<label>`), ensure proper grouping (`<fieldset>` and `<legend>`), and validate input fields accessibly.
 
-- **Example**: Use `<header>`, `<nav>`, `<article>`, and `<footer>` for page structure.
-  ```html
-  <!-- Bad -->
-  <div id="header">...</div>
+7. **Color Contrast**:
+   - Maintain high contrast between text and background colors to ensure readability.
 
-  <!-- Good -->
-  <header>...</header>
-  ```
+8. **Responsive Design**:
+   - Use responsive layouts and test across different devices and screen sizes to ensure a consistent experience.
 
-#### **Keyboard Navigation**
-
-Ensure that all interactive elements can be navigated using the keyboard.
-
-- **Example**: Use `tabindex` to manage keyboard focus order.
-  ```html
-  <button tabindex="1">First</button>
-  <button tabindex="2">Second</button>
-  ```
-
-### Summary
-
-- **Code Quality**: Emphasize clean, maintainable code through meaningful names, SRP, code reviews, and refactoring.
-- **Security**: Implement measures like input sanitization, CSRF tokens, and proper CORS configuration to secure your web applications.
-- **Accessibility**: Use ARIA roles, semantic HTML, and ensure keyboard navigability to make your web applications accessible to all users.
-
-Following these best practices will help you build robust, secure, and user-friendly web applications.
+9. **Testing Tools**:
+   - Use tools like Lighthouse, axe, or React Testing Library's `@testing-library/jest-dom` to check for accessibility issues.
