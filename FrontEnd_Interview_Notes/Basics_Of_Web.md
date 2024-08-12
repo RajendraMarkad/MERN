@@ -62,9 +62,17 @@
   - **Example:** Fetching new comments on a blog post without reloading the page.
 
 #### i. Micro Frontend
-- **Micro Frontend:** An approach to building web applications where a single app is split into smaller, independent parts.
-  - **Example:** An e-commerce site with separate components for the shopping cart, product listing, and user profile.
+##### Micro Frontend:
+- **Definition**: An architectural approach where a frontend application is split into smaller, independent, and self-contained units (micro frontends) that are developed, deployed, and managed by separate teams.
+- **Use Case**: Ideal for large, complex applications where multiple teams need to work on different parts of the UI independently, allowing for greater scalability and modularity.
 
+##### Macro Frontend:
+- **Definition**: A traditional monolithic frontend architecture where the entire UI is built as a single cohesive application, typically managed by one team or closely coordinated teams.
+- **Use Case**: Suitable for smaller applications or those requiring tight integration and uniformity across the entire UI, offering simpler management and development processes.
+
+### Summary:
+- **Micro Frontend**: Decentralized, modular, suitable for large-scale applications.
+- **Macro Frontend**: Centralized, monolithic, suitable for smaller or less complex applications.
 #### j. REST/GraphQL/Socket Connection
 - **REST:** Uses standard HTTP methods (GET, POST, PUT, DELETE) for API communication.
   - **Example:** `GET /users` to fetch users.
