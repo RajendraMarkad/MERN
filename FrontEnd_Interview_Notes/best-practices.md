@@ -82,6 +82,7 @@ XSS attacks occur when malicious scripts are injected into web pages. To prevent
   const safeInput = userInput.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   document.innerHTML = safeInput;
   ```
+      eg. SQL Injection Example: '; DROP TABLE users; --
 
 - **Use Content Security Policy (CSP)**: Define which sources of content are allowed to be loaded.
 
