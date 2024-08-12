@@ -40,6 +40,18 @@
 #### f. Cookie
 - **Cookie:** Small pieces of data stored by the browser to remember information about the user.
   - **Example:** Storing a user's login state so they don’t need to log in again.
+  Here's a comparison table between Cookies and Local Storage:
+
+| **Aspect**               | **Cookies**                                             | **Local Storage**                                    |
+|--------------------------|---------------------------------------------------------|------------------------------------------------------|
+| **Data Size**            | ~4KB per cookie                                         | 5-10MB per origin                                    |
+| **Expiration**           | Can be set to expire at a specific time or on session end | Persists until explicitly deleted                    |
+| **Accessibility**        | Accessible on both client and server sides              | Accessible only on the client side                   |
+| **Data Sent with Requests** | Sent with every HTTP request                          | Not sent with HTTP requests                          |
+| **Use Case**             | Session management, tracking, storing small data        | Storing larger amounts of client-side data, preferences, caching |
+| **Security**             | Can be secured with `HttpOnly` and `Secure` flags       | More vulnerable to XSS attacks; cannot be secured with flags |
+| **Typical Use**          | Authentication tokens, session IDs, tracking info       | User preferences, settings, cached data              |
+
 
 #### g. JWT
 - **JWT (JSON Web Token):** A secure way to transmit information between parties as a JSON object.
