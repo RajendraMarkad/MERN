@@ -1,7 +1,7 @@
-# Basic Web Concepts
-# [Real-Time Scenario Usages for a React.js Developer](#realtime)
+# 1] Basic Web Concepts
+# 2] [Real-Time Scenario Usages for a React.js Developer](#realtime)
 
-## Basic Web Concepts
+## 1] Basic Web Concepts
 #### a. Page Rendering Cycle
 1. **Request:** Browser requests the webpage from the server.
 2. **Response:** Server sends back HTML, CSS, and JavaScript files.
@@ -92,7 +92,7 @@
   - **Example:** Viewing and editing cookies.
 
 
-### Basic Web Concepts with Real-time Scenarios in React.js Projects <a id='realtime'></a>
+### 2] Basic Web Concepts with Real-time Scenarios in React.js Projects <a id='realtime'></a>
 
 #### a. Page Rendering Cycle
 **Scenario:** When a user navigates to a React application (e.g., a dashboard), the browser requests the HTML file. React then takes over to render components, apply styles, and execute JavaScript, making the page interactive.
