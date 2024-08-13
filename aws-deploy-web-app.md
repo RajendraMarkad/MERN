@@ -1,4 +1,4 @@
-# AWS 
+# How to deploy web app to AWS 
 
 ### 1. **Understanding the Key AWS Services**
    - **EC2 (Elastic Compute Cloud)**: Think of this as a computer in the cloud where your web application runs.
