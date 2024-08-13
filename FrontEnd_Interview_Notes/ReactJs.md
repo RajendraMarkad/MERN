@@ -591,3 +591,19 @@ The most commonly used methods for fetching data from a server in React are:
   ```
 
 These methods are widely adopted in React projects due to their flexibility, ease of use, and support for modern web development practices.
+
+### Interview Question 1 : How many package.json and package-lock.json files does a React project have ?
+
+Ans : 1 package.json file and 2 package-lock.json files.
+
+The "package.json" file is located in the project's root directory and is used to manage the project's dependencies, scripts, and configurations.
+
+The package-lock.json file is created in the project's root directory along with the package.json file. It locks down the specific versions of all the project's dependencies and keeps them safe.
+
+Another "package-lock.json" file is created inside the "node_modules" directory, serving a similar purpose to the main "package-lock.json" file in the project's root directory. It contains detailed information about the specific versions of dependencies and their sub-dependencies installed in the "node_modules" folder. The "package-lock.json" file handles transitive dependencies of the project.
+
+
+Interview Question 2 : What are transitive dependencies ?
+
+Transitive dependencies are the dependencies of a dependency. They are not directly required by your project but are needed by the dependencies that your project uses. Transitive dependencies act as the "hidden helpers" of your project. Example - Webpack or Vite comes as a dev dependency, but each also uses many other packages for proper functioning.
+
