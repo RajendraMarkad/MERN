@@ -1,7 +1,7 @@
 # How to deploy web app to AWS 
 
 ### 1. **Understanding the Key AWS Services**
-   - **EC2 (Elastic Compute Cloud)**: Think of this as a computer in the cloud where your web application runs.
+   - **EC2 (Elastic Compute Cloud)**: Think of this as a computer in the cloud where your web application runs. 
    - **S3 (Simple Storage Service)**: This is like an online hard drive where you can store files like images, videos, and backups.
    - **RDS (Relational Database Service)**: This is a place where you can keep your data organized in tables, like how you store contacts in your phone.
    - **DynamoDB**: This is another type of database, but it's super fast and flexible for storing data, especially when the data structure can change often.
@@ -10,6 +10,7 @@
    - **Launch an EC2 Instance**: First, you create an EC2 instance, which is like starting up a new computer in the cloud. You choose the operating system (like Windows or Linux) and the size of the instance based on your needs.
    - **Connect to EC2**: Once your EC2 instance is running, you can connect to it using a tool called SSH (like remote desktop) and set it up, just like installing software on your computer.
    - **Deploy Your Web App**: You then copy your web application's files to this EC2 instance and set it up so the application runs when someone visits your website.
+   - note: you can deploy a web application using only Amazon EC2 (Elastic Compute Cloud) but for Scalability, Performance, Management, we need other services also.
 
 ### 3. **Using S3 for Storage**
    - **Create an S3 Bucket**: You create a "bucket" in S3, which is like creating a folder on your computer. You can store all your files here, like images or backup files.
