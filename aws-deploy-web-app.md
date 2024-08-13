@@ -33,8 +33,7 @@
 
 That's a simple overview! Each of these steps involves some setup and configuration, but AWS provides lots of guides and tools to help you through it. Once you get the hang of it, you'll be able to deploy and manage web applications in the cloud with ease.
 
-
-Let's go through the step-by-step process of deploying a web application to AWS using the AWS Management Console, which is the website where you manage AWS services.
+# step-by-step process of deploying a web application to AWS using the AWS Management Console, which is the website where you manage AWS services.
 
 ### 1. **Sign Up and Log In**
    - **Create an AWS Account**: If you don't have an AWS account, go to [aws.amazon.com](https://aws.amazon.com) and sign up. You'll need to provide some details, including a payment method, but AWS offers a free tier for many services.
@@ -143,7 +142,7 @@ The diagram you've provided outlines the architecture of a web application deplo
 This layered approach allows for a scalable, secure, and high-performing web application on AWS.
 
 
-Here’s a revised version with explanations for why each step or approach is used, along with some additional important points:
+## Interview Questions:
 
 ### **1. What steps do you follow to deploy a React app?**
    - **Build the App:** Run `npm run build` to create a production-ready build. 
