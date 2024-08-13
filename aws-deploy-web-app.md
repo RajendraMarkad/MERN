@@ -1,5 +1,13 @@
 # How to deploy web app to AWS 
 
+### 0. why AWS is considered better than Azure:
+
+1. **Broader Range of Services:** AWS offers a wider range of services compared to Azure and Google Cloud, with over 200 services across various domains such as compute, storage, databases, analytics, AI, machine learning, and more.
+2. **Cost-Effectiveness:** AWS is often regarded as more cost-effective compared to Azure.
+3. **Better DevOps Support:** AWS provides superior DevOps support compared to Azure.
+4. **More Data Centers:** AWS has a greater number of data centers than Azure, which is advantageous for geographically-dispersed software teams.
+5. **Larger Open Source Community:** AWS has a larger open source community compared to Azure.
+
 ### 1. **Understanding the Key AWS Services**
    - **EC2 (Elastic Compute Cloud)**: Think of this as a computer in the cloud where your web application runs. 
    - **S3 (Simple Storage Service)**: This is like an online hard drive where you can store files like images, videos, and backups.
