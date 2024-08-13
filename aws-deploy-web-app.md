@@ -52,7 +52,7 @@ That's a simple overview! Each of these steps involves some setup and configurat
    - **Create an AWS Account**: If you don't have an AWS account, go to [aws.amazon.com](https://aws.amazon.com) and sign up. You'll need to provide some details, including a payment method, but AWS offers a free tier for many services.
    - **Log In**: Once your account is set up, log in to the AWS Management Console.
 
-### 2. **Launch an EC2 Instance**
+### 2. **Launch an EC2 Instance** 
    - **Go to EC2**: In the AWS Management Console, search for "EC2" and click on it. This is where you create and manage your cloud servers.
    - **Launch Instance**: Click the "Launch Instance" button. You'll go through a wizard to set up your instance:
      - **Choose AMI**: Select an Amazon Machine Image (AMI). This is like choosing the operating system for your server. For most web apps, "Amazon Linux 2" or "Ubuntu" is a good choice.
@@ -62,6 +62,7 @@ That's a simple overview! Each of these steps involves some setup and configurat
      - **Add Tags**: Optionally, add tags to help identify your instance later.
      - **Configure Security Group**: This is important! Create or select a security group that allows HTTP (port 80) or HTTPS (port 443) if your app is web-based. Also, allow SSH (port 22) to connect to the instance.
      - **Launch**: Click "Launch," and you'll be prompted to create or select a key pair. This key pair is used to securely connect to your instance.
+     - watch link: https://youtu.be/I_FmJGtOePk?si=Dg0kGsj0UhUAjx5s
 
 ### 3. **Connect to Your EC2 Instance**
    - **Get Your Instance's Public IP**: Once your instance is running, find its public IP address or DNS name in the EC2 dashboard.
@@ -76,6 +77,7 @@ That's a simple overview! Each of these steps involves some setup and configurat
    - **Create a Bucket**: Click "Create Bucket" and give it a unique name. This bucket will hold your files.
    - **Set Permissions**: Choose the appropriate permissions. If you're hosting public content like images, you'll need to allow public access.
    - **Upload Files**: Click on your bucket, and you can start uploading files like images, videos, or other assets your web app needs.
+   - watch video: https://youtu.be/N-gzLmYLRRk?si=K5ko45rfaYuzTWVM
 
 ### 5. **Set Up RDS for Your Database**
    - **Go to RDS**: In the AWS Management Console, search for "RDS" and click on it.
