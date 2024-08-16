@@ -20,7 +20,7 @@
 | **Code Maintainability**        | More modular and easier to maintain due to hooks.        | Can become complex and hard to maintain, especially with many lifecycle methods. |
 | **Community & Ecosystem**       | Increasingly favored by the React community.             | Traditional approach, still widely used but less favored in new projects. |
 
-### Summary:
+### Why FC over CC:
 - **Functional Components** are simpler, more concise, and align with modern React practices. They allow for a more functional programming approach, making code easier to understand, maintain, and test.
 - **Class Components** are more traditional and offer a familiar approach for developers with an object-oriented background, but they require more boilerplate and can be more complex to manage, especially as the component grows.
 
