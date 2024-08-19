@@ -40,3 +40,21 @@ To push your code to the `main` branch on GitHub via the terminal, follow these 
 - `git push -u origin main`: Pushes the code to the `main` branch on GitHub.
 
 If your repository already exists and you have been working on it, you can skip the `git init` and `git remote add origin` steps.
+
+## Errors:
+
+
+
+**if got error like:**
+```
+PS C:\Users\Rajendra\OneDrive\Desktop\Master-React\practice-all-react-topics> git push -u origin main
+To https://github.com/RajendraMarkad/practice-all-react-topics
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/RajendraMarkad/practice-all-react-topics'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+command to resolve: 'git pull origin main --rebase' and then push code
