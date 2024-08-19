@@ -461,7 +461,10 @@ While nesting providers is common, deeply nested providers can make the componen
 const useTheme = () => useContext(ThemeContext);
 const useAuth = () => useContext(AuthContext);
 ```
-
+**Note:**
+-Provider Requires value: When using Provider, you must provide a value prop.
+-Default Value Fallback: If you don't use Provider, or if a component consumes a context without any Provider, the default value will be used.
+-Error Handling: Not providing a value to Provider results in an error, so make sure to always pass the value prop when using Provider.
 ### Summary
 
 - **`useContext`**: A React hook to access context values directly within functional components.
