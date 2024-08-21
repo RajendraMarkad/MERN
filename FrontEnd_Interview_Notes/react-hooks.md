@@ -621,3 +621,62 @@ const useStateContext = () => React.useContext(StateContext);
 3. **Keep Reducers Simple:** Try to keep reducers as simple as possible and avoid complex logic within them.
 
 By following these guidelines, you can effectively manage complex state logic in React applications using `useReducer`.
+
+## 5. useCallback and useMemo:
+
+### **1. Basics**
+
+- **`useCallback`**: A React hook that returns a memoized version of a callback function, which only changes if one of its dependencies changes. It’s primarily used to prevent unnecessary re-creation of functions in functional components.
+- **`useMemo`**: A React hook that returns a memoized value, recalculating it only when one of its dependencies changes. It’s used to optimize performance by avoiding expensive calculations on every render.
+
+### **2. Key Concepts**
+
+- **Memoization**: Both hooks are based on memoization, a technique that caches the result of a function call or calculation based on its inputs.
+- **Dependencies**: The performance benefits come from specifying dependencies, so the memoized function or value is only recalculated when those dependencies change.
+
+### **3. Common Use Cases**
+
+- **`useCallback`**:
+  - **Event Handlers**: Prevents re-creation of event handler functions that are passed down as props, reducing unnecessary re-renders of child components.
+  - **Optimized Re-renders**: Helps in optimizing components that depend on functions as props by ensuring that the same function instance is passed down, avoiding unnecessary re-renders.
+
+- **`useMemo`**:
+  - **Expensive Calculations**: Caches the result of expensive calculations that don’t need to be re-evaluated on every render.
+  - **Referential Equality**: Helps prevent unnecessary re-renders by maintaining the same reference for objects or arrays across renders.
+
+### **4. Best Practices**
+
+- **useCallback**:
+  - Use when passing functions as props to prevent child components from re-rendering unnecessarily.
+  - Avoid overusing it; only apply it to functions where the performance impact of re-creation is significant.
+
+- **useMemo**:
+  - Use for expensive computations that don’t need to be recalculated on every render.
+  - Avoid wrapping every calculation in `useMemo`; use it when there’s a noticeable performance impact.
+
+### **5. Examples**
+
+- **`useCallback` Example**:
+  ```javascript
+  const handleClick = useCallback(() => {
+    // Logic here
+  }, [dependency]); // Only re-creates when dependency changes
+
+  <Button onClick={handleClick} />;
+  ```
+
+- **`useMemo` Example**:
+  ```javascript
+  const expensiveValue = useMemo(() => {
+    return calculateExpensiveValue(data);
+  }, [data]); // Only recalculates when 'data' changes
+  ```
+
+### **6. Real-World Applications**
+
+- **Optimizing Lists**: `useCallback` can be used in a list where each item has an onClick handler. Using `useCallback` ensures that the same function instance is passed to each item, preventing unnecessary re-renders.
+- **Avoiding Expensive Recalculations**: `useMemo` can be used to cache a computed value, like filtering a large list of items. By memoizing the filtered list, React only recalculates it when the source list or filter criteria change.
+
+### **Summary**
+- **`useCallback`**: Best used for optimizing function references passed to child components, especially in large lists or components with complex prop structures.
+- **`useMemo`**: Best used for caching the results of expensive computations, improving performance by preventing unnecessary recalculations.
