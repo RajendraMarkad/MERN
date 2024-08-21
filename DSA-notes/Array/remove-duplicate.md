@@ -32,6 +32,7 @@ console.log(removeDuplicates(arr)); // Output: [1, 2, 3, 4, 5]
 
 ### **2. Removing Duplicates from a deeply Nested Array**
 
+```
 function removeDuplicatesDeep(arr) {
     let uniqueElements = new Set(); // Using a Set to track unique elements
 
@@ -57,7 +58,7 @@ console.log(removeDuplicatesDeep(deeplyNestedArr)); // Output: [1, 2, 3, 4, 5, 6
 
 ```
 
-### **3. Advanced Example: Removing Duplicates from a Deeply Nested Array without using set()**
+### **3.Removing Duplicates from a Deeply Nested Array without using set()**
 
 For deeply nested arrays like `[1, [2, [3, 4, [5, 6]]], [2, [3, 4]], 7]`, you need to recursively flatten the array, remove duplicates, and then rebuild it.
 
