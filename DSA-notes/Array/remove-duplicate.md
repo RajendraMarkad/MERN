@@ -27,49 +27,34 @@ let arr = [1, 2, 2, 3, 4, 4, 5];
 console.log(removeDuplicates(arr)); // Output: [1, 2, 3, 4, 5]
 ```
 
-### **2. Removing Duplicates from a Nested Array (One Level of Nesting)**
+### **2. Removing Duplicates from a deeply Nested Array**
 
-When dealing with a nested array like `[1, 2, [3, 4], [3, 4], 5]`, we need to flatten it first, then remove duplicates.
+function removeDuplicatesDeep(arr) {
+    let uniqueElements = new Set(); // Using a Set to track unique elements
 
-#### **Example:**
-```javascript
-function removeDuplicatesFromNested(arr) {
-    let flattenedArray = [];
-    
-    // Flatten the array manually (one level deep)
-    for (let i = 0; i < arr.length; i++) {
-        if (Array.isArray(arr[i])) {
-            for (let j = 0; j < arr[i].length; j++) {
-                flattenedArray.push(arr[i][j]);
-            }
-        } else {
-            flattenedArray.push(arr[i]);
-        }
-    }
-    
-    // Remove duplicates from the flattened array
-    let uniqueArray = [];
-    for (let i = 0; i < flattenedArray.length; i++) {
-        let isDuplicate = false;
-        for (let j = 0; j < uniqueArray.length; j++) {
-            if (flattenedArray[i] === uniqueArray[j]) {
-                isDuplicate = true;
-                break;
+    // Helper function to flatten and collect unique elements
+    function processArray(array) {
+        for (let i = 0; i < array.length; i++) {
+            if (Array.isArray(array[i])) {
+                processArray(array[i]); // Recurse into nested arrays
+            } else {
+                uniqueElements.add(array[i]); // Add element to Set
             }
         }
-        if (!isDuplicate) {
-            uniqueArray.push(flattenedArray[i]);
-        }
     }
-    
-    return uniqueArray;
+
+    processArray(arr); // Start processing the array
+
+    // Convert the Set to an array and return it
+    return Array.from(uniqueElements);
 }
 
-let nestedArr = [1, 2, [3, 4], [3, 4], 5];
-console.log(removeDuplicatesFromNested(nestedArr)); // Output: [1, 2, 3, 4, 5]
+const deeplyNestedArr = [1, [2, [3, 4, [5, 6]]], [2, [3, 4]], 7];
+console.log(removeDuplicatesDeep(deeplyNestedArr)); // Output: [1, 2, 3, 4, 5, 6, 7]
+
 ```
 
-### **3. Advanced Example: Removing Duplicates from a Deeply Nested Array**
+### **3. Advanced Example: Removing Duplicates from a Deeply Nested Array without using set()**
 
 For deeply nested arrays like `[1, [2, [3, 4, [5, 6]]], [2, [3, 4]], 7]`, you need to recursively flatten the array, remove duplicates, and then rebuild it.
 
