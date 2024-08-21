@@ -8,7 +8,9 @@ For a basic array like `[1, 2, 2, 3, 4, 4]`, we can remove duplicates by iterati
 ```javascript
 function removeDuplicates(arr) {
     let uniqueArray = [];
+    // 1. Iterate all element of array
     for (let i = 0; i < arr.length; i++) {
+        // 2. check for the element same present in uniqueArray or not. if present make isDuplicate true otherwise keep it false.
         let isDuplicate = false;
         for (let j = 0; j < uniqueArray.length; j++) {
             if (arr[i] === uniqueArray[j]) {
@@ -16,6 +18,7 @@ function removeDuplicates(arr) {
                 break;
             }
         }
+        // 3. if similar element is not present in uniqueArray then push it. note: !false= true
         if (!isDuplicate) {
             uniqueArray.push(arr[i]);
         }
