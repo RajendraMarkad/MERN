@@ -19,5 +19,5 @@ function sumDeepNestedArray(arr) {
 }
 
 const deeplyNestedArr = [1, [2, [3, 4, [5, 6]]], [2, [3, 4]], 7];
-console.log(sumDeepNestedArray(deeplyNestedArr)); // Output: 35
+console.log(sumDeepNestedArray(deeplyNestedArr)); // Output: 37
 ```
