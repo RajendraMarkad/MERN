@@ -3,7 +3,7 @@ Table of contents:
 
 
 
-### Tree Shaking in #JavaScript: <a id='shaking' />
+### 1. Tree Shaking in #JavaScript: <a id='shaking' />
 
 ✨ What is Tree Shaking?
 
