@@ -614,7 +614,7 @@ Interview Question 2 : What are transitive dependencies ?
 Transitive dependencies are the dependencies of a dependency. They are not directly required by your project but are needed by the dependencies that your project uses. Transitive dependencies act as the "hidden helpers" of your project. Example - Webpack or Vite comes as a dev dependency, but each also uses many other packages for proper functioning.
 
 
-## ✨ What is Reconciliation?<a id='Reconciliation> </a>
+## ✨ What is Reconciliation?<a id='Reconciliation'> </a>
 
 Reconciliation is the process React uses to update the user interface efficiently when your application’s state or props change. The core idea is to determine the minimal number of changes needed to apply updates to the DOM.
 
