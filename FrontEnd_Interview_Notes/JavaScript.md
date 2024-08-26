@@ -1,6 +1,6 @@
 ### Table of Contents:
-**1.** [Generator Function](#generator)
-**2.** [Why Use Generator Functions in a React App?](#why)
+- **1.** [Generator Function](#generator)
+- **2.** [Why Use Generator Functions in a React App?](#why)
 
 
 ### 1. Generator Function <a id='generator' />
