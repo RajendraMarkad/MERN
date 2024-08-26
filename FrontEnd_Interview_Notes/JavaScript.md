@@ -2,7 +2,7 @@
 **1.** [Generator Function](#generator)
 
 
-### Generator Function <a id='generator' />
+### 1. Generator Function <a id='generator' />
 
 #### What It Is: A Clear Definition and Overview
 A generator function in JavaScript is a special type of function that can pause its execution and resume later. This is made possible using the `yield` keyword, which allows the function to return a value to the caller and then pause its execution. The function retains its internal state so that when it resumes, it continues from where it left off. Generator functions are defined using the `function*` syntax.
