@@ -654,7 +654,7 @@ React uses a Virtual DOM (a lightweight copy of the real DOM) to compare changes
 
 Reconciliation is the secret behind React’s efficiency. By only updating the parts of the DOM that actually change, React ensures your apps remain fast, even as they grow in complexity. Understanding this process helps you write better-performing, scalable React applications.
 
-## 2. Tree Shaking in #JavaScript: <a id='shaking' />
+## 2. Tree Shaking by webpack: <a id='shaking' />
 
 ✨ What is Tree Shaking?
 
@@ -709,6 +709,4 @@ With tree shaking enabled, the bundler (like Webpack, Rollup, or ESBuild) detect
 - Tree shaking works best with static analysis, meaning it can struggle with dynamic code (like conditional imports or certain side-effects).
 - Not all libraries are tree-shakable. Some might include side-effects or non-ES6 module code.
 
-✨ In Summary:
-
-Tree shaking is an essential practice in modern JavaScript development. It keeps your code clean and your applications performing at their best. 🌐
+✨ In Summary: tree shaking is a feature of bundlers like Webpack and Rollup, which analyze your code to remove unused parts. Babel assists in the build process but doesn't perform tree shaking itself.
