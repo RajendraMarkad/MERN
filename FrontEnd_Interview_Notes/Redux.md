@@ -1,3 +1,18 @@
+# Redux : Interview questions:
+
+🔹 What is the purpose of the combineReducers function in Redux?
+🔹 What is the role of middleware in Redux, and can you provide examples?
+🔹 How does the Redux Thunk middleware work?
+🔹 What are the differences between Redux Thunk and Redux Saga?
+🔹 How do you handle optimistic updates in Redux?
+🔹 What are selectors in Redux and how can they be optimized using libraries like Reselect?
+🔹 Can you explain the concept of immutability in Redux and its importance?
+🔹 How does Redux manage side effects, and what are the common patterns for handling them?
+🔹 What is the difference between synchronous and asynchronous actions in Redux?
+🔹 How would you set up code splitting and lazy loading in a Redux-based React app?
+
+
+
 To prepare for an interview that involves Redux, you should focus on understanding the core concepts and being able to implement a simple Redux store in a React application. Here's a brief overview of what you should learn:
 
 ### Core Concepts
