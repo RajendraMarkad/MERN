@@ -5,6 +5,8 @@
 1. **Architectural Pattern: Microfrontend**
    - **Why:** Monolithic frontends become unmanageable and unscalable. Microfrontend architecture allows for modular design, scalability, and the use of the best technology for specific use cases.
    - **How:** Implement using techniques like Iframes, Web Components, Module Federation, or Route-based MicroApps.
+   - ![image](https://github.com/user-attachments/assets/9564693a-2f44-4206-af50-246412497afc)
+
 
 2. **Communication Protocols**
    - **Long Polling:** Useful for continuous data requests (e.g., analytics).
