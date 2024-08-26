@@ -1,6 +1,8 @@
 
 ## Redux Interview Questions and Options
 
+```
+
 1. **What is Redux primarily used for in React applications?**
    - A) State Management
    - B) Routing
@@ -200,6 +202,8 @@
 50. **What is the primary use of `redux-saga`?**
     - A) To handle complex asynchronous side effects
     - B) To handle synchronous actions
+   
+```
 
 ## Answers
 
@@ -216,9 +220,7 @@
 11. A) Connects React components to the Redux store
 12. A) To map state to component props
 13. A) `useSelector`
-14. A) To map actions to component
-
- props
+14. A) To map actions to component props
 15. A) `createStore`
 16. A) Write action creators that return functions
 17. A) To manage side effects in Redux
