@@ -52,7 +52,7 @@
 
 
 
-### ***Explaination of Architectural Pattern: Microfrontend*** <a id='explain'/>
+### ***1. Explaination of Architectural Pattern: Microfrontend*** <a id='explain'/>
 
 Monolithic frontends, where the entire frontend is built as a single large application, can become unmanageable and difficult to scale over time. As the application grows, adding new features, fixing bugs, or maintaining the codebase can become increasingly complex. This is because changes in one part of the code can inadvertently affect other parts, leading to increased development time, higher risks of bugs, and slower release cycles.
 
