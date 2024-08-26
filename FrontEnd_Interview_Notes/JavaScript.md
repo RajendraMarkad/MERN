@@ -108,43 +108,42 @@ Generator functions are a powerful feature in JavaScript that provide an elegant
 
 ### Why Use Generator Functions in a React App? <a id='why' />
 
-1. **Managing Side Effects**: Generator functions are integral to libraries like Redux-Saga, which is used to manage complex side effects in React applications. They allow for a clear and concise way to handle asynchronous operations such as API calls, by making the code look synchronous and easier to follow.
+### Why Use Generator Functions in a React App?
 
-2. **Control Over Execution Flow**: Generators provide fine-grained control over function execution. This is particularly useful in React applications when you need to manage sequences of actions that depend on each other, such as form submissions, validation processes, or chained API calls.
+1. **Handling Side Effects with Redux-Saga**: Generator functions are crucial in managing complex side effects, like API calls, in Redux-Saga. They allow you to write asynchronous code that looks synchronous, making it easier to manage and understand the flow of side effects.
 
-3. **Handling Asynchronous Data**: In a React app, you often deal with asynchronous data (e.g., fetching data from an API). Generators allow you to yield control back to the calling function while waiting for asynchronous operations to complete, improving the overall flow and readability of your code.
+2. **Fine-Grained Control Over Execution**: Generators provide precise control over when and how parts of your code execute. This is particularly useful in React apps where you may need to manage multiple asynchronous tasks and coordinate them in a specific order without nesting callbacks or promises.
 
-### Example: Using Generators in Redux-Saga
+3. **Memory Efficiency**: Generators yield values only when requested, which is memory efficient. In React apps, this can be beneficial when dealing with large datasets or infinite scrolling features, as it prevents unnecessary memory consumption by loading only what’s needed.
+
+### Example
+Using Redux-Saga with a generator function to handle user login:
 
 ```javascript
-import { call, put, takeLatest } from "redux-saga/effects";
-import { loginRequest, loginSuccess, loginFailure } from "./authSlice";
-import axios from "axios";
+import { call, put, takeLatest } from 'redux-saga/effects';
+import { loginRequest, loginSuccess, loginFailure } from './authSlice';
+import axiosInstance from '../../app/axios';
 
-// Generator function to handle login
 function* handleLogin(action) {
   try {
-    const response = yield call(axios.post, "/api/login", {
-      username: action.payload.username,
+    const response = yield call(axiosInstance.post, '/auth/login', {
+      username: action.payload.userName,
       password: action.payload.password,
     });
-    yield put(loginSuccess(response.data));
+    yield put(loginSuccess({ response }));
   } catch (error) {
-    yield put(loginFailure(error.message));
+    yield put(loginFailure(error.response?.data?.message || 'Login failed'));
   }
 }
 
-// Watcher saga to watch for login actions
-function* watchLogin() {
+export function* watchLogin() {
   yield takeLatest(loginRequest.type, handleLogin);
 }
-
-export default watchLogin;
 ```
+In this example, the generator function `handleLogin` manages the asynchronous login process in a clear and manageable way.
 
-**Explanation**:
-- **Managing Side Effects**: The `handleLogin` generator function manages the side effect of making an API call for user login.
-- **Control Over Execution Flow**: The generator pauses at `yield call()` to wait for the API response before proceeding to either success or failure.
-- **Handling Asynchronous Data**: The generator handles asynchronous data fetching (API call) seamlessly, making the process more predictable and easier to debug.
+### Why Not Other Approaches? 
 
-This approach simplifies the handling of complex asynchronous tasks in React, making your code cleaner and more maintainable.
+- **Callback Hell**: Using callbacks can lead to deeply nested code, making it difficult to manage and understand.
+- **Promises**: While promises help manage asynchronous tasks, chaining them can still result in complex and hard-to-read code, especially when multiple tasks need to be coordinated.
+- **Async/Await**: While async/await simplifies promise handling, it doesn't provide the same level of control over execution flow as generator functions do. In complex applications with Redux, generator functions via Redux-Saga offer a more structured and maintainable way to handle side effects.
