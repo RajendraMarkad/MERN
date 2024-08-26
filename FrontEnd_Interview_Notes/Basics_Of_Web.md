@@ -2,7 +2,7 @@
 # 2] [Real-Time Scenario Usages for a React.js Developer](#realtime)
 
 ## 1] Basic Web Concepts
-#### a. Page Rendering Cycle
+#### a. Page Rendering Cycle 
 1. **Request:** Browser requests the webpage from the server.
 2. **Response:** Server sends back HTML, CSS, and JavaScript files.
 3. **Parsing:** Browser reads (parses) the HTML to build the DOM (Document Object Model).
