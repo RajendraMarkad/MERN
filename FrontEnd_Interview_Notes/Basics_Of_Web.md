@@ -20,9 +20,10 @@
 - **HTTP2:** An improved version of HTTP, which loads web pages faster.
   - **Example:** Supports multiplexing (multiple requests in one connection).
 
-#### c. CORS
+#### c. CORS 
 - **CORS (Cross-Origin Resource Sharing):** Allows web servers to specify who can access their resources.
   - **Example:** A webpage at `example.com` making a request to `api.otherdomain.com`.
+  - [Explaination](#cors)
 
 #### d. Local Storage/Session Storage
 - **Local Storage:** Stores data with no expiration. 
@@ -161,3 +162,108 @@
 - **Network:** Monitoring API calls to ensure data is being fetched correctly.
 - **Performance:** Profiling the app to find performance bottlenecks.
 - **Application:** Checking local storage, session storage, and cookies for correct data storage.
+
+
+### Explanation of CORS (Cross-Origin Resource Sharing) <a id='cors' />
+
+**CORS** stands for **Cross-Origin Resource Sharing**. It is a security feature implemented by browsers to restrict how resources on a web page can be requested from another domain. 
+
+#### **How CORS Works:**
+- **Same-Origin Policy:** By default, browsers enforce a security mechanism called the **Same-Origin Policy**. This means that a web page can only request resources from the same origin (same domain, protocol, and port).
+  
+- **CORS:** CORS allows servers to specify who can access their resources and how via HTTP headers. When a request is made to a server from a different origin (cross-origin), the server can include specific headers in its response to indicate that it allows access from the requesting origin.
+
+#### **Key Concepts:**
+- **Origin:** Combination of the protocol, domain, and port.
+  - Example: `https://example.com:8080`
+  
+- **Preflight Request:** For non-simple requests (e.g., those with custom headers or methods like `PUT` or `DELETE`), the browser sends a preflight request (an `OPTIONS` request) to the server to check if the actual request is allowed.
+
+- **CORS Headers:**
+  - `Access-Control-Allow-Origin`: Specifies which origins are permitted to access the resource.
+  - `Access-Control-Allow-Methods`: Specifies which HTTP methods are allowed (e.g., `GET`, `POST`).
+  - `Access-Control-Allow-Headers`: Specifies which headers can be used in the actual request.
+  - `Access-Control-Allow-Credentials`: Indicates whether credentials (cookies, HTTP authentication) can be sent with the request.
+
+### **CORS in a React Project**
+
+When building a React application, you often need to interact with APIs that might be hosted on a different domain. Here’s how CORS relates to React and how you can handle it:
+
+#### **Scenario:**
+You have a React frontend running on `http://localhost:3000`, and you're trying to fetch data from an API hosted on `http://api.example.com`.
+
+#### **CORS Issue:**
+If the API server does not include the appropriate CORS headers, the browser will block the request, and you'll see a CORS error in the console.
+
+#### **Example: Handling CORS in React**
+
+1. **Backend Setup:**
+   - **Express.js Example:** If you control the backend, you can configure it to allow requests from your React frontend.
+   ```javascript
+   const express = require('express');
+   const cors = require('cors');
+   const app = express();
+
+   app.use(cors({
+       origin: 'http://localhost:3000', // Allow requests from this origin
+       methods: 'GET,POST', // Allow specific methods
+       credentials: true, // Allow credentials (cookies, etc.)
+   }));
+
+   app.get('/api/data', (req, res) => {
+       res.json({ message: 'This is CORS-enabled for localhost:3000!' });
+   });
+
+   app.listen(5000, () => {
+       console.log('Server running on port 5000');
+   });
+   ```
+
+2. **Frontend (React) Setup:**
+   - When making a request from your React app, ensure that you're aware of the CORS policies in place.
+   ```javascript
+   fetch('http://api.example.com/data', {
+       method: 'GET',
+       credentials: 'include', // Include credentials (cookies, etc.)
+   })
+   .then(response => {
+       if (!response.ok) {
+           throw new Error('Network response was not ok');
+       }
+       return response.json();
+   })
+   .then(data => console.log(data))
+   .catch(error => console.error('There was a problem with your fetch operation:', error));
+   ```
+
+3. **Handling CORS with Proxy (Development Mode):**
+   - In development mode, you can avoid CORS issues by setting up a proxy in your React project.
+   - **Setting Up Proxy:** Add a `proxy` field to your `package.json`.
+     ```json
+     {
+       "name": "my-app",
+       "version": "0.1.0",
+       "private": true,
+       "dependencies": {
+         "react": "^18.0.0",
+         "react-dom": "^18.0.0",
+         "react-scripts": "5.0.0"
+       },
+       "scripts": {
+         "start": "react-scripts start",
+         "build": "react-scripts build",
+         "test": "react-scripts test",
+         "eject": "react-scripts eject"
+       },
+       "proxy": "http://api.example.com"
+     }
+     ```
+   - Now, any API requests made to `http://localhost:3000` will be proxied to `http://api.example.com`.
+
+#### **Example Without a Proxy:**
+If the API server is not configured to handle CORS, or if you don't want to set up a proxy, you can use tools like **CORS Anywhere** to create a temporary proxy that adds CORS headers.
+
+### **Summary:**
+- **CORS** is crucial when making cross-origin requests in React apps.
+- Proper server configuration or setting up a proxy in development can help you handle CORS effectively.
+- Always test your CORS setup to ensure a seamless experience when your app interacts with external APIs.
