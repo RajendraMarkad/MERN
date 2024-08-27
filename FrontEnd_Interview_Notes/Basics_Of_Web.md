@@ -59,6 +59,7 @@
 
 #### g. JWT
 - **JWT (JSON Web Token):** A secure way to transmit information between parties as a JSON object.
+- The token is mainly composed of header, payload, signature: ``` [header].[payload].[signature] ```
   - **Example:** Token used to authenticate a user’s login session. https://www.codejava.net/images/articles/frameworks/springboot/jwt-auth/JWT_request_response.png
 
 #### h. XHR
