@@ -6,7 +6,7 @@ Here's the refined list without the references:
 
 ---
 
-### **How to Optimize the Performance of a Web Application**
+### **How to Optimize the Performance of a Web Application** <a id='performance' />
 
 1. **Minimize HTTP Requests:**
    - Bundle and minify assets (CSS, JS) to reduce the number and size of HTTP requests.
