@@ -21,7 +21,7 @@
   - **Example:** Supports multiplexing (multiple requests in one connection).
 
 #### c. CORS 
-- **CORS (Cross-Origin Resource Sharing):** Allows web servers to specify who can access their resources.
+- **CORS (Cross-Origin Resource Sharing):** its a permission given to web servers to specify who can access their resources.
   - **Example:** A webpage at `example.com` making a request to `api.otherdomain.com`.
   - [Explaination](#cors)
 
