@@ -39,6 +39,7 @@
   - **FID (First Input Delay):** Time from user interaction to browser response.
   - **CLS (Cumulative Layout Shift):** Measures unexpected layout shifts.
   - **Example:** Tools like Google PageSpeed Insights provide these metrics.
+  - [Explaination](https://www.freecodecamp.org/news/how-to-track-and-analyze-web-vitals-to-improve-seo/)
 
 #### f. Cookie
 - **Cookie:** Small pieces of data stored by the browser to remember information about the user.
