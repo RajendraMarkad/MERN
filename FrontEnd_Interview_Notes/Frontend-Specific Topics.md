@@ -3,8 +3,6 @@
    - [Does React Webpack Have a Compiler to Compile React Code Before Transpiling by Babel?](#transpile)
 
 
-Here's the refined list without the references:
-
 ---
 
 ### **How to Optimize the Performance of a Web Application** <a id='performance' />
