@@ -1,6 +1,8 @@
 ### Table of Contents:
 - **1.** [Generator Function](#generator)
 - **2.** [Why Use Generator Functions in a React App?](#why)
+- **3.** [Shallow Copy vs Deep copy](#(copy)
+- **4.** [Lodash](https://www.geeksforgeeks.org/lodash/)
 
 
 ### 1. Generator Function <a id='generator' />
@@ -148,3 +150,49 @@ In this example, the generator function `handleLogin` manages the asynchronous l
 - **Callback Hell**: Using callbacks can lead to deeply nested code, making it difficult to manage and understand.
 - **Promises**: While promises help manage asynchronous tasks, chaining them can still result in complex and hard-to-read code, especially when multiple tasks need to be coordinated.
 - **Async/Await**: While async/await simplifies promise handling, it doesn't provide the same level of control over execution flow as generator functions do. In complex applications with Redux, generator functions via Redux-Saga offer a more structured and maintainable way to handle side effects.
+
+Your explanation is clear and concise! Here's a slightly refined version for a polished presentation:
+
+---
+
+## Shallow copy vs deep copy <a id='copy' />
+
+### ➤ Shallow Copy:
+A shallow copy creates a new object, but it only copies the references of nested objects. This means that if the original object contains other objects, the shallow copy will reference the same nested objects, not new ones. As a result, changes to the nested objects will affect both the original and the shallow copy.
+
+**➤ Example:**
+Using `Object.assign` or the spread operator (`...`) creates a shallow copy.
+
+```javascript
+const original = { name: "Rani", address: { city: "Pune" } };
+const shallowCopy = { ...original };
+shallowCopy.address.city = "Mumbai";
+console.log(original.address.city); 
+// Output: "Mumbai"
+```
+
+### ➤ Deep Copy:
+A deep copy creates a new object and recursively copies all nested objects, ensuring a complete duplication of the original object. Changes made to the deep copy do not affect the original object, as the nested objects are also independently copied.
+
+**➤ Example:**
+Using libraries like `lodash` or `JSON.parse(JSON.stringify())`, or implementing recursive functions, can achieve deep copying.
+
+```javascript
+const _ = require('lodash');
+const original = { name: "Rani", address: { city: "Pune" } };
+const deepCopy = _.cloneDeep(original);
+deepCopy.address.city = "Mumbai";
+console.log(original.address.city); 
+// Output: "Pune"
+```
+
+### ➤ Use Cases:
+- **Shallow Copy:** Best suited for simple objects or when only the top-level properties need duplication.
+- **Deep Copy:** Essential for complex objects with nested structures, ensuring complete independence from the original object.
+
+### ➤ Performance:
+- **Shallow Copy:** Faster and less resource-intensive, ideal for simpler or flatter objects.
+- **Deep Copy:** Slower and more resource-intensive due to the need for recursive copying, but necessary for maintaining the integrity of deeply nested objects.
+
+---
+
