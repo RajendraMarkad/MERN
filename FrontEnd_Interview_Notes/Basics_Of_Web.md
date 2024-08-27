@@ -148,9 +148,9 @@
 
 #### j. REST/GraphQL/Socket Connection
 **Scenario:** 
-- **REST:** Fetching user data using `GET /users` API.
-- **GraphQL:** Fetching specific user data (name and email) using a GraphQL query.
-- **Socket Connection:** Implementing a real-time chat feature using WebSockets.
+- **REST:** Fetching user data using `GET /users` API. [Read More...](https://www.freecodecamp.org/news/how-to-consume-rest-apis-in-react/)
+- **GraphQL:** Fetching specific user data (name and email) using a GraphQL query. [Read More....](https://www.geeksforgeeks.org/graphql-tutorial/)
+- **Socket Connection:** 2 way communication. eg. Implementing a real-time chat feature using WebSockets. [Read Me...](https://www.geeksforgeeks.org/socket-in-computer-network/)
 
 #### k. Browser Concepts
 **Scenario:** Manipulating the DOM using React hooks like `useEffect`, and understanding how CSSOM and DOM interact to apply styles dynamically.
