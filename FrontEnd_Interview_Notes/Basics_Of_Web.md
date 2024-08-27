@@ -19,6 +19,7 @@
   - **Example:** A request to `https://example.com`.
 - **HTTP2:** An improved version of HTTP, which loads web pages faster.
   - **Example:** Supports multiplexing (multiple requests in one connection).
+-[Explaination](https://www.geeksforgeeks.org/explain-working-of-https/)
 
 #### c. CORS 
 - **CORS (Cross-Origin Resource Sharing):** its a permission given to web servers to specify who can access their resources.
