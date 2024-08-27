@@ -30,6 +30,7 @@
   - **Example:** Saving a user's preferences that persist after closing the browser.
 - **Session Storage:** Stores data for the duration of the page session. 
   - **Example:** Shopping cart data that is cleared when the tab is closed.
+- [Explaination](https://www.geeksforgeeks.org/localstorage-and-sessionstorage-web-storage-apis/)
 
 #### e. Web Vitals
 - Metrics that help ensure a good user experience.
