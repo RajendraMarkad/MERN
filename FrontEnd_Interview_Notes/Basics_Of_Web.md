@@ -53,7 +53,7 @@
 | **Data Sent with Requests** | Sent with every HTTP request                          | Not sent with HTTP requests                          |
 | **Use Case**             | Session management, tracking, storing small data        | Storing larger amounts of client-side data, preferences, caching |
 | **Security**             | Can be secured with `HttpOnly` and `Secure` flags       | More vulnerable to XSS attacks; cannot be secured with flags |
-| **Typical Use**          | Authentication tokens, session IDs, tracking info       | User preferences, settings, cached data              |
+| **Typical Use**          | Authentication tokens(logged in), session IDs, tracking info       | User preferences, settings(theme), cached data              |
 
 
 #### g. JWT
