@@ -3,6 +3,7 @@ Table of Contents:
 2. [Tree Shaking](#shaking)
 3. [Formik](https://www.freecodecamp.org/news/build-react-forms-with-formik-library/)
 4. [Lazy Loading](#lazy)
+5. [Fetch vs Axios](#apicall)
 
 
 Sure, here are some simple interview questions based on actual scenarios you might encounter while working on a React project:
@@ -533,7 +534,7 @@ Lazy loading is a design pattern used in web development to defer the loading of
 
 By implementing lazy loading, you can enhance your application's performance and provide a smoother user experience.
 
-The most commonly used methods for fetching data from a server in React are:
+## Fetch vs axios <a id='apicall' />
 
 ### **1. Fetch API**
 - **Use Case:** Simple, built-in way to make HTTP requests.
