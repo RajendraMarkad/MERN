@@ -834,3 +834,63 @@ function App() {
 
 ### Conclusion:
 Always use the `use` prefix when creating custom hooks in React. This helps React recognize the function as a hook and ensures that the rules of hooks are applied, leading to consistent and predictable behavior.
+
+## React.memo and useMemo:
+
+`React.memo` and `useMemo` are both optimization techniques in React, but they serve different purposes and are used in different scenarios.
+
+### **`React.memo`**
+
+- **Purpose**: `React.memo` is a higher-order component (HOC) that memoizes a functional component. It helps to prevent unnecessary re-renders of a component when its props have not changed.
+
+- **Usage**: Wrap a functional component with `React.memo` to memoize it. If the component's props remain the same on subsequent renders, React will skip re-rendering that component and reuse the last rendered output.
+
+- **Example**:
+  ```javascript
+  const MyComponent = React.memo(({ prop1, prop2 }) => {
+    // This component will only re-render if prop1 or prop2 changes
+    return <div>{prop1} {prop2}</div>;
+  });
+  ```
+
+- **When to Use**: Use `React.memo` when:
+  - You have a pure functional component that only depends on its props.
+  - The component is being re-rendered unnecessarily because the parent component is re-rendering.
+  - You want to optimize rendering performance.
+
+### **`useMemo`**
+
+- **Purpose**: `useMemo` is a React hook that memoizes the result of a computation (i.e., a value) and recomputes it only when its dependencies change. It helps to optimize expensive calculations that don't need to be recalculated on every render.
+
+- **Usage**: Use `useMemo` within a functional component to memoize a calculated value. It takes a function and a dependency array, and it will only recompute the memoized value when one of the dependencies changes.
+
+- **Example**:
+  ```javascript
+  const MyComponent = ({ items }) => {
+    const expensiveCalculation = useMemo(() => {
+      return items.reduce((total, item) => total + item.value, 0);
+    }, [items]); // Recalculates only when items change
+
+    return <div>Total: {expensiveCalculation}</div>;
+  };
+  ```
+
+- **When to Use**: Use `useMemo` when:
+  - You have an expensive calculation that you want to avoid re-running on every render.
+  - The calculated value is only needed when certain dependencies change.
+  - You want to improve the performance of your component by memoizing computed values.
+
+### **Comparison and Summary**:
+
+- **`React.memo`** is for memoizing entire functional components to prevent re-renders when props haven't changed.
+- **`useMemo`** is for memoizing expensive calculations or derived values within a component to avoid recalculating them on every render.
+
+In short:
+- Use **`React.memo`** to avoid re-rendering components unnecessarily.
+- Use **`useMemo`** to avoid recalculating expensive values unnecessarily.
+
+### **Real-World Example**:
+
+- **`React.memo`**: You have a `UserProfile` component that only re-renders when the user's data changes. Wrapping it with `React.memo` prevents it from re-rendering when the parent component re-renders due to unrelated state changes.
+
+- **`useMemo`**: Inside the `UserProfile` component, you calculate the user's age based on their birthdate. Since this calculation only needs to be done when the birthdate changes, you use `useMemo` to memoize the age calculation.
