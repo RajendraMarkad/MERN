@@ -561,6 +561,113 @@ By implementing lazy loading, you can enhance your application's performance and
   }, []);
   ```
 
+  ```
+  Here’s a concise cheat sheet for points 1, 3, and 4 from the previous explanation about what Axios offers more than `fetch()`:
+
+---
+
+### **Axios vs. Fetch Cheat Sheet**
+
+#### **1. Automatic JSON Data Transformation**
+
+- **Axios**:
+  - Automatically parses JSON responses; no need to call `.json()`.
+  - Access the parsed data directly using `response.data`.
+
+  ```javascript
+  // Axios
+  axios.get('/api/data')
+    .then(response => {
+      console.log(response.data); // Already parsed JSON
+    });
+  ```
+
+- **fetch()**:
+  - Requires manual JSON parsing using `response.json()`.
+
+  ```javascript
+  // fetch()
+  fetch('/api/data')
+    .then(response => response.json()) // Manually parsing JSON
+    .then(data => {
+      console.log(data);
+    });
+  ```
+
+---
+
+#### **3. Automatic Handling of Timeouts**
+
+- **Axios**:
+  - Supports setting a timeout directly. Automatically cancels the request if it exceeds the specified time.
+
+  ```javascript
+  // Axios
+  axios.get('/api/data', { timeout: 5000 })
+    .then(response => console.log(response))
+    .catch(error => console.error('Request timed out:', error));
+  ```
+
+- **fetch()**:
+  - Requires manual timeout handling using `AbortController`.
+
+  ```javascript
+  // fetch() with timeout
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+  fetch('/api/data', { signal: controller.signal })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => {
+      if (error.name === 'AbortError') {
+        console.error('Request timed out');
+      } else {
+        console.error('Fetch error:', error);
+      }
+    });
+  ```
+
+---
+
+#### **4. Request and Response Data Transformation**
+
+- **Axios**:
+  - Allows for transforming request and response data before sending or receiving it.
+
+  ```javascript
+  // Axios
+  axios.post('/api/data', { name: 'John' }, {
+    transformRequest: [(data) => {
+      return JSON.stringify(data); // Transforming request data
+    }],
+    transformResponse: [(data) => {
+      return JSON.parse(data); // Transforming response data
+    }]
+  }).then(response => console.log(response.data));
+  ```
+
+- **fetch()**:
+  - Requires manual handling of any data transformation before sending or after receiving data.
+
+  ```javascript
+  // fetch() - Manual transformation example
+  const transformedData = JSON.stringify({ name: 'John' });
+
+  fetch('/api/data', {
+    method: 'POST',
+    body: transformedData,
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json())
+    .then(data => console.log(data));
+  ```
+
+---
+
+This cheat sheet highlights the simplicity and convenience that Axios brings to common tasks compared to `fetch()`, especially in handling JSON data, timeouts, and data transformations.
+```
+
 ### **3. React Query**
 - **Use Case:** Complex data-fetching needs, including caching, pagination, and synchronization.
 - **Why It's Common:** Helps manage server state and simplifies handling loading states, caching, and background data synchronization.
