@@ -2,6 +2,7 @@ Table of Contents:
 1. [Reconciliation](#reconciliation)
 2. [Tree Shaking](#shaking)
 3. [Formik](https://www.freecodecamp.org/news/build-react-forms-with-formik-library/)
+4. [Lazy Loading](#lazy)
 
 
 Sure, here are some simple interview questions based on actual scenarios you might encounter while working on a React project:
@@ -456,7 +457,7 @@ src/
 - **Separation of Concerns**: Separate different aspects of the application, such as components, state management, services, and utilities, into their respective folders.
 - 
 
-
+## Lazy Loading: <a id='lazy' />
 Lazy loading is a design pattern used in web development to defer the loading of non-critical resources until they are actually needed. This improves initial page load times and overall performance by reducing the amount of data that needs to be loaded upfront.
 
 ### Key Concepts
