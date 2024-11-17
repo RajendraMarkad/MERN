@@ -1,0 +1,213 @@
+### Frontend Developer Best Practices Cheatsheet
+
+#### **Code Quality and Formatting**
+1. **ESLint**:  
+   - Ensures code consistency by detecting and fixing code issues.  
+   - Helps identify potential bugs early.  
+
+2. **Prettier**:  
+   - Formats code for a clean and uniform appearance.  
+   - Avoids debates over code style in teams.  
+
+3. **Husky & Lint-Staged**:  
+   - Automates pre-commit hooks to run linters and tests before committing.  
+   - Prevents bad code from entering the repository.  
+
+---
+
+#### **Build Optimization**
+1. **Webpack Dev & Prod Configurations**:  
+   - Dev: Fast builds with source maps for debugging.  
+   - Prod: Minified and optimized bundles for better performance.  
+
+2. **Tree Shaking**:  
+   - Eliminates unused code from the final build.  
+   - Reduces bundle size and improves load times.  
+
+3. **Code Splitting**:  
+   - Splits large bundles into smaller chunks.  
+   - Improves performance by loading only what's needed.  
+
+4. **Image Optimization**:  
+   - Uses tools like `image-webpack-loader` to compress images.  
+   - Reduces build size for faster page loads.  
+
+---
+
+#### **Testing**
+1. **Jest**:  
+   - Provides unit testing for components.  
+   - Ensures individual pieces of code work as expected.  
+
+2. **Cypress**:  
+   - End-to-end testing for complete user workflows.  
+   - Ensures the frontend behaves as intended in the browser.  
+
+---
+
+#### **CI/CD and Deployment**
+1. **GitHub Actions**:  
+   - Automates linting, testing, and deployments via workflows.  
+   - Example workflows:  
+     - `lint.yml`: Lints code for every pull request.  
+     - `jest.yml`: Runs unit tests on pushes.  
+     - `webpack.yml`: Builds and tests bundles.  
+     - `main.yml`: Combines lint, test, and deploy actions.  
+
+2. **Build Size Tracking**:  
+   - Monitors the bundle size using `webpack-bundle-analyzer`.  
+   - Ensures builds stay optimized and within performance limits.  
+
+---
+
+#### **Type Safety**
+1. **TypeScript**:  
+   - Catches type errors at compile time.  
+   - Makes the codebase more robust and maintainable.  
+
+---
+
+#### **Performance Monitoring**
+1. **Bundle Size**:  
+   - Target: Keep under 250 KB for faster loading.  
+   - Use `Gzip` or `Brotli` compression for distribution.  
+
+2. **Web Vitals**:  
+   - Track metrics like FCP, LCP, and TTI using tools like Lighthouse.  
+   - Ensures a smooth user experience.  
+
+---
+
+#### **DevOps Knowledge for Frontend Developers**
+1. **CI/CD Pipelines**:  
+   - Automate builds, tests, and deployments.  
+   - Ensure every commit is production-ready.  
+
+2. **Static Hosting**:  
+   - Use platforms like AWS S3, Netlify, or Vercel for hosting static assets.  
+
+3. **Environment Management**:  
+   - Manage `dev`, `staging`, and `prod` configurations using `.env` files.  
+   - Avoid hardcoding sensitive data.  
+
+4. **Monitoring & Alerts**:  
+   - Set up tools like Sentry or New Relic for error tracking and performance monitoring.  
+
+---
+
+#### **Documentation**
+1. **Storybook**:  
+   - Create and test UI components in isolation.  
+   - Maintain a living component library for team reference.  
+
+2. **Swagger**:  
+   - Document API endpoints for easy integration and debugging.  
+
+---
+
+#### **Build Size Management**  
+- **Keep JavaScript under 250 KB (gzipped)** for faster initial load.  
+- Minimize dependencies by avoiding unused libraries.  
+- Use lazy-loading for components and assets.  
+
+--- 
+
+This setup ensures a **bug-free, performant, and maintainable** frontend application that aligns with best practices and modern CI/CD workflows.
+
+
+Your `package.json` setup is well-structured for a **React, TypeScript, and Jest boilerplate project**. Below is a breakdown of its key features and some additional recommendations to ensure **best practices, performance, and maintainability**:
+
+---
+
+### **Key Features**
+1. **React + TypeScript Setup**:
+   - Ensures type safety and improved developer productivity.
+   - Includes `@types` for React, Jest, Cypress, etc., ensuring better IntelliSense and type-checking.
+
+2. **Linting**:
+   - **ESLint** (`lint:code`): Enforces JavaScript/TypeScript coding standards.
+   - **Stylelint** (`lint:style`): Ensures consistent SCSS styling.
+   - Both support auto-fixing with the `:fix` commands.
+
+3. **Testing**:
+   - **Jest**: For unit and integration tests (`test:jest`, `test:jest:coverage`).
+   - **Cypress**: For end-to-end testing (`test:cypress`).
+   - Coverage and watch modes provide comprehensive test feedback.
+
+4. **Webpack Configuration**:
+   - `webpack.dev.js`: For development with hot module replacement (HMR).
+   - `webpack.prod.js`: Optimized for production, using plugins like `mini-css-extract-plugin`.
+
+5. **Pre-commit Hooks**:
+   - Powered by Husky (`hooks.pre-commit`), ensures linting and Jest tests are run before committing code.
+
+6. **Lint-Staged**:
+   - Focuses on staged files only, speeding up linting and preventing unrelated changes from failing checks.
+
+7. **Build Optimization**:
+   - Includes tools like `mini-css-extract-plugin` for CSS, and loaders for file and style handling.
+
+---
+
+### **Suggestions for Improvement**
+1. **Bundle Analysis**:
+   - Add `webpack-bundle-analyzer` to track and optimize the bundle size.
+   - Command: `"analyze": "webpack --config webpack.prod.js --profile --json > stats.json && webpack-bundle-analyzer stats.json"`.
+
+2. **Environment Management**:
+   - Use `dotenv` for environment-specific configurations.
+   - Command: `"dotenv": "^16.1.0"`.
+
+3. **GitHub Actions Workflows**:
+   - Automate CI/CD processes:
+     - **lint.yml**: Runs linting on pull requests.
+     - **jest.yml**: Executes Jest tests for every push/PR.
+     - **build.yml**: Builds the application to validate the production build process.
+     - **cypress.yml**: Runs Cypress E2E tests after the app is built.
+
+4. **Code Formatting**:
+   - Add Prettier integration for formatting consistency across all file types.
+
+5. **Performance Optimization**:
+   - **Split Code**: Leverage dynamic imports and lazy loading in React.
+   - **Cache Busting**: Configure Webpack to include hash-based file names for cache invalidation.
+
+6. **Accessibility and SEO**:
+   - Use React Helmet for dynamic `<head>` management.
+   - Add accessibility checks with tools like `axe-core`.
+
+---
+
+### **Frontend Developer Responsibilities**
+1. **Build Size Management**:
+   - Keep the final build gzipped under 250 KB (JS).
+   - Regularly monitor with tools like `webpack-bundle-analyzer`.
+
+2. **Performance**:
+   - Optimize images and assets (e.g., `image-webpack-loader`).
+   - Leverage HTTP/2 features like prefetching and preloading assets.
+
+3. **Testing Coverage**:
+   - Ensure tests cover edge cases (target >80% coverage).
+   - Use Cypress to replicate real-world scenarios.
+
+4. **Code Standards**:
+   - Maintain consistency with Prettier and ESLint configurations.
+   - Use `typescript-eslint` for unified linting of TypeScript files.
+
+5. **CI/CD Integration**:
+   - Automate builds and tests using GitHub Actions or similar CI tools.
+   - Integrate Lighthouse audits for performance and PWA compliance.
+
+---
+
+### **Additional Tools**
+- **React Query**: Optimize server state management.
+- **Sentry**: Monitor and log runtime errors in production.
+- **Browserlist**: Ensure compatibility with modern browsers (`package.json` > `browserslist`).
+
+---
+
+This structure ensures high-quality, performant, and maintainable code while aligning with modern frontend and DevOps practices.
+
+
